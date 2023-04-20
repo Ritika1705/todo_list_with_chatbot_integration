@@ -1,0 +1,71 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: weather path
+  steps: 
+  - intent: greet
+  - action: utter_greet
+  - action: utter_general_message
+  - intent: weather
+  - action: utter_weather_city
+  - action: action_weather
+  - action: utter_temp
+  
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_heal
+
+- story: general greet happy
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: named_conversation
+    entities:
+    - name
+  - action: utter_general_message
+  - intent: mood_great
+  - action: utter_happy
+
+- story: big basket shopping
+  steps:
+  - intent: big basket
+  - action: utter_big_basket
+
+- story: dunzo shopping
+  steps:
+  - intent: dunzo
+  - action: utter_dunzo
+
+- story: blinkit shopping
+  steps:
+  - intent: blinkit
+  - action: utter_blinkit
+
+- story: shopping
+  steps:
+  - intent: groceries
+  - action: utter_groceries

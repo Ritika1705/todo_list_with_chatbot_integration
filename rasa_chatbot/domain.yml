@@ -1,0 +1,81 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - named_conversation
+  - weather
+  - city
+  - groceries
+  - dunzo
+  - blinkit
+  - big basket
+
+actions:
+  - action_weather
+  
+slots:
+  name:
+    type: text
+    mappings:
+      - type: custom
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://static8.depositphotos.com/1003131/1021/i/450/depositphotos_10214337-stock-photo-yellow-lab-puppy-in-the.jpg"
+
+  utter_heal:
+  - text: Sorry that didn't help. Maybe listen  to some music or do whatever you love to do. Meditation is always a great option. Come back when you are ready. You need some rest champ!!
+  
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_general_message:
+  - text: "Hello !! Super stoked to meet you. How are you feeling today?"
+
+  utter_temp:
+  - text: "The temperature of you city is {temp} degrees"
+
+  utter_weather_city:
+  - text: "Which city are you from ?"
+
+  utter_big_basket:
+  - text: "Quick!! Click on this link and start ordering - [BigBasket](https://www.bigbasket.com/). Happy shopping"
+
+  utter_dunzo:
+  - text: "Quick!! Click on this link and start ordering - [Dunzo](https://www.dunzo.com/bangalore). Happy shopping"
+
+  utter_blinkit:
+  - text: "Quick!! Click on this link and start ordering - [Blinkit](https://blinkit.com/). Happy shopping"
+
+  utter_groceries:
+  - text: "Where would you like to order groceries from?"
+    buttons:
+    - title: Big Basket
+      payload: /big basket
+    - title: Dunzo
+      payload: /dunzo
+    - title: blinkit
+      payload: /blinkit
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
